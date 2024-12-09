@@ -1,4 +1,3 @@
-
 -- Library UI
 local UILib = {}
 function UILib:CreateWindow(title)
@@ -9,14 +8,14 @@ function UILib:CreateWindow(title)
 
     ScreenGui.Name = "UILibrary"
     Frame.Name = "MainFrame"
-    Frame.Size = UDim2.new(0, 300, 0, 200)
-    Frame.Position = UDim2.new(0.5, -150, 0.5, -100)
-    Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    Frame.Size = UDim2.new(0, 350, 0, 250)
+    Frame.Position = UDim2.new(0.5, -175, 0.5, -125)
+    Frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
     Frame.BorderSizePixel = 0
     Frame.Active = true
     Frame.Draggable = true
 
-    Title.Size = UDim2.new(1, 0, 0, 30)
+    Title.Size = UDim2.new(1, 0, 0, 40)
     Title.BackgroundTransparency = 1
     Title.Text = title
     Title.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -40,8 +39,8 @@ end
 
 function UILib:CreateButton(parent, text, callback)
     local Button = Instance.new("TextButton", parent)
-    Button.Size = UDim2.new(1, 0, 0, 30)
-    Button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    Button.Size = UDim2.new(1, 0, 0, 40)
+    Button.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
     Button.BorderSizePixel = 0
     Button.Text = text
     Button.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -52,7 +51,7 @@ function UILib:CreateButton(parent, text, callback)
 end
 
 -- UI Initialization
-local window = UILib:CreateWindow("ESP Player")
+local window = UILib:CreateWindow("ESP MENU")
 
 -- Variables
 local espEnabled = false
@@ -72,7 +71,7 @@ local function createESP(player)
     TextLabel.Parent = BillboardGui
     TextLabel.Size = UDim2.new(1, 0, 1, 0)
     TextLabel.BackgroundTransparency = 1
-    TextLabel.Text = player.Name .. " | Distance: " .. math.floor((player.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
+    TextLabel.Text = player.Name .. " | " .. math.floor((player.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
     TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
     TextLabel.TextScaled = true
     TextLabel.Font = Enum.Font.SourceSansBold
@@ -105,7 +104,7 @@ local function toggleESP(state)
     end
 end
 
--- Button to Toggle ESP
-UILib:CreateButton(window, "Toggle ESP", function()
+-- ESP Toggle Button
+UILib:CreateButton(window, "Esp Player", function()
     toggleESP(not espEnabled)
 end)
